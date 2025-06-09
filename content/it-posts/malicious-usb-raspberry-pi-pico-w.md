@@ -173,24 +173,23 @@ This step is optional but this is the proper way to open the run dialog before y
 
 #### Fifth: The Main Function:
 ```python
-if __name__ == '__main__':
-    # Initialize keyboard
-    keyboard = Keyboard(usb_hid.devices)
-    time.sleep(1)
+# Initialize keyboard
+keyboard = Keyboard(usb_hid.devices)
+time.sleep(1)
 
-    # Open run dialog
-    open_run_dialog()
-    time.sleep(0.5)
+# Open run dialog
+open_run_dialog()
+time.sleep(0.5)
 
-    # Type the command you want in the run dialog
-    type_command("<command>")
-    time.sleep(0.5)
+# Type the command you want in the run dialog
+type_command("<command>")
+time.sleep(0.5)
 
-    # Press enter
-    keyboard.press(Keycode.ENTER)
+# Press enter
+keyboard.press(Keycode.ENTER)
 
-    # Relase the keyboard
-    keyboard.release_all()
+# Relase the keyboard
+keyboard.release_all()
 ```
 Since everything is self-explanatory so I will hit you with some notes:
 1. The `time.sleep(<value>)` depends on what are you exactly doing for example running an run as administrator dialog will require you to sleep for 2 seconds at least depending on the hardware of the device you are connecting to so make sure you set it up proberly
