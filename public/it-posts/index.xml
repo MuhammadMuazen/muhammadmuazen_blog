@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>It-Posts on Muhammad Muazen</title>
+    <link>http://localhost:1313/it-posts/</link>
+    <description>Recent content in It-Posts on Muhammad Muazen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 08 Jun 2025 02:29:16 -1200</lastBuildDate>
+    <atom:link href="http://localhost:1313/it-posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Developing a malicious USB using Raspberry Pi Pico and CircuitPython Firmware</title>
+      <link>http://localhost:1313/it-posts/malicious-usb-raspberry-pi-pico-w/</link>
+      <pubDate>Sun, 08 Jun 2025 02:29:16 -1200</pubDate>
+      <guid>http://localhost:1313/it-posts/malicious-usb-raspberry-pi-pico-w/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/rasp-pi-mal-usb/picoImage.png&#34; alt=&#34;RaspberryPiPicoImage&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;During my work on the graduation project that deals with the topic of DLL injection, I had to choose the attack vector for the practical application I would demonstrate. After much discussion with my supervising professor, I was asked to develop a Human Interface Device (HID) to be the starting point in the attack process. I chose the Raspberry Pi Pico Microcontroller, and I had the W version that supports Wi-Fi, but in any case, the project works on both versions.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+            --font-size: 17.5px;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Developing a malicious USB using Raspberry Pi Pico and CircuitPython Firmware</title>
+    <meta name="description" content="
+During my work on the graduation project that deals with the topic of DLL injection, I had to choose the attack vector for the practical application I would …">
+    <meta name="keywords" content='blog, gokarna, hugo, cybersecurity, hacking, ethicalhacker, penetration tester, programming, c, rust, python, cs, computer science, viral, cyber, tech, IT, computers, ideas, hustle, work, job, posts, sharing, information, ctf, defensive, embedded, arduino, esp32, stm32, raspberry pi, hardware, software, hiring, personal, learning, free, opensource, IoT, RedTeaming, Cybersecurity, Raspberry Pi, CircuitPython, MCU'>
+
+    <meta property="og:url" content="http://localhost:1313/it-posts/malicious-usb-raspberry-pi-pico-w/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Developing a malicious USB using Raspberry Pi Pico and CircuitPython Firmware">
+    <meta property="og:description" content="
+During my work on the graduation project that deals with the topic of DLL injection, I had to choose the attack vector for the practical application I would …">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.jpg">
+    <meta property="og:image:secure_url" content="http://localhost:1313/images/avatar.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Developing a malicious USB using Raspberry Pi Pico and CircuitPython Firmware">
+    <meta name="twitter:description" content="
+During my work on the graduation project that deals with the topic of DLL injection, I had to choose the attack vector for the practical application I would …">
+    <meta property="twitter:domain" content="http://localhost:1313/it-posts/malicious-usb-raspberry-pi-pico-w/">
+    <meta property="twitter:url" content="http://localhost:1313/it-posts/malicious-usb-raspberry-pi-pico-w/">
+    <meta name="twitter:image" content="http://localhost:1313/images/avatar.jpg">
+
+    
+    <link rel="canonical" href="http://localhost:1313/it-posts/malicious-usb-raspberry-pi-pico-w/">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.fdbfba1e074acb7e4abbf4c94eb19abb7702489c9689a27ee5e24a2bd481e4b7.js" integrity="sha256-/b&#43;6HgdKy35Ku/TJTrGau3cCSJyWiaJ&#43;5eJKK9SB5Lc="></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="http://localhost:1313/">
+                <img src='/images/avatar.jpg' alt="avatar">
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="http://localhost:1313/">Muhammad Muazen</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/" aria-label="" ><i class='fas fa-home'></i>  Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/it-posts/" aria-label="" ><i class='fa fa-code fa-fw'></i>  IT Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/non-it-posts/" aria-label="" ><i class='fa fa-book fa-fw'></i>  Non-IT Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/about-me/" aria-label="" ><i class='fa fa-user fa-fw'></i>  About Me </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/contact-me/" aria-label="" ><i class='fa fa-envelope fa-fw'></i>  Contact me </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                <a aria-hidden="true" role="switch">
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a aria-checked="false" aria-labelledby="hamburger-menu-toggle" id="hamburger-menu-toggle-target" role="switch">
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/" ><i class='fas fa-home'></i>  Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/it-posts/" ><i class='fa fa-code fa-fw'></i>  IT Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/non-it-posts/" ><i class='fa fa-book fa-fw'></i>  Non-IT Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/about-me/" ><i class='fa fa-user fa-fw'></i>  About Me </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/contact-me/" ><i class='fa fa-envelope fa-fw'></i>  Contact me </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a role="switch">
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Developing a malicious USB using Raspberry Pi Pico and CircuitPython Firmware</h1>
+
+        
+
+        
+	
+	
+	
+	
+        
+
+	
+
+	
+
+	
+          <small role="doc-subtitle"></small>
+	
+
+	
+          <p class="post-date">
+              
+                  7 min read |
+              
+
+              June 8, 2025
+
+              
+          </p>
+	
+
+        <ul class="post-tags">
+          
+           
+             <li class="post-tag"><a href="http://localhost:1313/tags/blog">blog</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="http://localhost:1313/tags/iot">IoT</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="http://localhost:1313/tags/redteaming">RedTeaming</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="http://localhost:1313/tags/cybersecurity">Cybersecurity</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="http://localhost:1313/tags/raspberry-pi">Raspberry Pi</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="http://localhost:1313/tags/circuitpython">CircuitPython</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="http://localhost:1313/tags/mcu">MCU</a></li>
+           
+         
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p><img src="/images/rasp-pi-mal-usb/picoImage.png" alt="RaspberryPiPicoImage"></p>
+<p>During my work on the graduation project that deals with the topic of DLL injection, I had to choose the attack vector for the practical application I would demonstrate. After much discussion with my supervising professor, I was asked to develop a Human Interface Device (HID) to be the starting point in the attack process. I chose the Raspberry Pi Pico Microcontroller, and I had the W version that supports Wi-Fi, but in any case, the project works on both versions.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#disclaimer">Disclaimer</a></li>
+<li><a href="#but-what-exactly-is-raspberry-pi-pico">But What Exactly is Raspberry Pi Pico?</a></li>
+<li><a href="#circuitpython-and-why">CircuitPython and Why?</a></li>
+<li><a href="#setting-up-raspberry-pi-pico-with-circuitpython">Setting Up Raspberry Pi Pico with CircuitPython:</a></li>
+<li><a href="#time-to-code">Time To Code:</a>
+<ul>
+<li><a href="#but-wait-what-exactly-we-want-to-do">But wait what exactly we want to do?</a></li>
+<li><a href="#first-implementing-the-libraries">First: Implementing the libraries:</a></li>
+<li><a href="#second-defining-the-special-characters-and-digits-we-need-manually">Second: Defining the special characters and digits we need manually:</a></li>
+<li><a href="#third-defining-the-function-to-type-the-commands">Third: Defining the function to type the commands:</a></li>
+<li><a href="#fourth-optional-open-the-run-dialog-in-windows-function">Fourth (Optional): Open the Run Dialog in Windows function:</a></li>
+<li><a href="#fifth-the-main-function">Fifth: The Main Function:</a></li>
+</ul>
+</li>
+<li><a href="#running-the-code">Running the Code:</a></li>
+<li><a href="#final-thoughts">Final Thoughts:</a></li>
+<li><a href="#references">References:</a></li>
+</ul>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>This tool is intended for ethical security testing, authorized red teaming, and educational purposes only.</p>
+<h2 id="but-what-exactly-is-raspberry-pi-pico">But What Exactly is Raspberry Pi Pico?</h2>
+<p>According to the Offical <a href="https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#:~:text=Raspberry%20Pi%20Pico%20is%20a,running%20up%20to%20133%20MHz">Website</a> Raspberry Pi Pico is a low-cost, high-performance microcontroller board with flexible digital interfaces. It can be used from a simple light displays and IoT devices to signage and manufacturing processes. it has two versions the normal pico and the W version which supports Wi-Fi and it is programmable in C and MicroPython but in this case I won&rsquo;t be using any of these but instead I will the <a href="https://circuitpython.org/">CircuitPython</a> Firmware.</p>
+<h2 id="circuitpython-and-why">CircuitPython and Why?</h2>
+<p><img src="/images/rasp-pi-mal-usb/circuitPythonLogo.png" alt="CircuitPython-Logo"></p>
+<p><a href="https://docs.circuitpython.org/en/latest/README.html">CircuitPython</a> is an open-source, beginner-friendly programming language and runtime environment designed for microcontrollers and embedded systems. It is a derivative of MicroPython, optimized for simplicity and ease of use, particularly in educational and DIY electronics projects.</p>
+<p>There are two reasons for choosing CircuitPython in this project:</p>
+<ol>
+<li>I tried first to develop the HID malicious USB using the natvie C/C++ Raspberry Pi Pico <a href="https://www.raspberrypi.com/documentation/microcontrollers/c_sdk.html">SDK</a> using the <a href="https://docs.tinyusb.org/en/latest/">tinyusb</a> library. It was a bit hard at first then I fully understood the logic but in the end I stopped developing it for a very simple reason&hellip; The code was big and needed a lot of explaining in the project documentation which was already big enough and since the whole project concept was not even about the raspberry Pi Pico I decided to drop the SDK implementatin and search for something else.</li>
+<li><a href="https://www.adafruit.com/?srsltid=AfmBOop1pHOGx7YwoyR1DSdSvzCkrQQth85lU6iyUQM7NRMYJGJjS6HW">Adafruit</a> <a href="https://www.youtube.com/adafruit">videos</a> are so cool and since they are the main supporter for the CircuitPython project up to this date I always wanted to use this firmware in a way or another.</li>
+<li>Finally it gets the job done in a very nice and clean way.</li>
+</ol>
+<h2 id="setting-up-raspberry-pi-pico-with-circuitpython">Setting Up Raspberry Pi Pico with CircuitPython:</h2>
+<ol>
+<li>Download the CircuitPython .UF2 file for the right microcontroller in my case it is the Raspberry Pi Pico W but as mentioned before this project works on both the Pico and Pico W. CircuitPython download <a href="https://circuitpython.org/downloads">page</a>.</li>
+</ol>
+<p><img src="/images/rasp-pi-mal-usb/picoDownloadpage.png" alt="CircuitPythonDownloadPage"></p>
+<ol start="2">
+<li>Connect the Raspberry Pi Pico to your device using USB while holding the BOOTSEL button. A new connected device will appear.</li>
+<li>Drag and drop the downloaded .UF2 CircuitPython file in the Raspberry Pi Pico.</li>
+<li>The Raspberry Pi Pico will reboot and reconnect but this time it will show as a normal connected device with the name (CIRCUITPY).</li>
+<li>In the new Raspberry Pi Pico connected device you should see two things:
+<ul>
+<li><code>code.py</code>: which holds all the code you want to run</li>
+<li><code>lib/</code>: used for external libraries</li>
+</ul>
+</li>
+<li>Since we are going to use the Raspberry Pi Pico as a HID USB device we need to add several files to the <code>lib</code> directory:
+<ol>
+<li>Download the latest CircuitPython Library Bundle <code>.zip</code> file from <a href="https://circuitpython.org/libraries">here</a></li>
+<li>Unzip the downloaded file and copy the <code>adafruit_hid/</code> from it to the <code>CIRCUITPY/lib/</code></li>
+<li>Make sure you have the following files in the <code>lib/adafruit_hid/</code> directory:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Name
+</span></span><span style="display:flex;"><span>-------
+</span></span><span style="display:flex;"><span>__init__.mpy
+</span></span><span style="display:flex;"><span>consumer_control_code.mpy
+</span></span><span style="display:flex;"><span>consumer_control.mpy
+</span></span><span style="display:flex;"><span>keyboard_layout_base.mpy
+</span></span><span style="display:flex;"><span>keyboard_layout_us.mpy
+</span></span><span style="display:flex;"><span>keyboard.mpy
+</span></span><span style="display:flex;"><span>keycode.mpy
+</span></span><span style="display:flex;"><span>mouse.mpy
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>Open <code>code.py</code> file in any code editor you want.</li>
+</ol>
+<p>Now we are ready to start coding!</p>
+<h2 id="time-to-code">Time To Code:</h2>
+<h4 id="but-wait-what-exactly-we-want-to-do">But wait what exactly we want to do?</h4>
+<p>In a very general form we want to connect the Pico through USB to any device and run a certain command.</p>
+<h4 id="first-implementing-the-libraries">First: Implementing the libraries:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> adafruit_hid.keycode <span style="color:#f92672">import</span> Keycode
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> adafruit_hid.keyboard <span style="color:#f92672">import</span> Keyboard
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> usb_hid
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span></code></pre></div><ol>
+<li><code>adafruit_hid.keycode</code>: This <a href="https://docs.circuitpython.org/projects/hid/en/latest/api.html#adafruit_hid.keycode.Keycode">module</a> holds the USB HID Keycode constant.</li>
+<li><code>adafruit_hid.keyboard</code>: the <a href="https://docs.circuitpython.org/projects/hid/en/latest/api.html#adafruit_hid.keyboard.Keyboard">module</a> send HID keyboard reports.</li>
+<li><code>usb_hid</code>: <a href="https://docs.circuitpython.org/projects/hid/en/latest/index.html">driver</a> simulates USB HID devices.</li>
+<li><code>time</code>: this is a built it <a href="https://docs.python.org/3/library/time.html">module</a> in the python package that provides various time-related functions.</li>
+</ol>
+<h4 id="second-defining-the-special-characters-and-digits-we-need-manually">Second: Defining the special characters and digits we need manually:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Special characters manually</span>
+</span></span><span style="display:flex;"><span>special_characters <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34; &#34;</span>: Keycode<span style="color:#f92672">.</span>SPACE,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;-&#34;</span>: Keycode<span style="color:#f92672">.</span>MINUS,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#39;&#34;</span>: Keycode<span style="color:#f92672">.</span>QUOTE,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">&#34;</span>: Keycode<span style="color:#f92672">.</span>QUOTE,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;.&#34;</span>: Keycode<span style="color:#f92672">.</span>PERIOD,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;/&#34;</span>: Keycode<span style="color:#f92672">.</span>FORWARD_SLASH,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#34;</span>: Keycode<span style="color:#f92672">.</span>BACKSLASH,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;(&#34;</span>: Keycode<span style="color:#f92672">.</span>NINE,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;)&#34;</span>: Keycode<span style="color:#f92672">.</span>ZERO,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;[&#34;</span>: Keycode<span style="color:#f92672">.</span>LEFT_BRACKET,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;]&#34;</span>: Keycode<span style="color:#f92672">.</span>RIGHT_BRACKET,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;:&#34;</span>: Keycode<span style="color:#f92672">.</span>SEMICOLON,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;;&#34;</span>: Keycode<span style="color:#f92672">.</span>SEMICOLON,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;$&#34;</span>: Keycode<span style="color:#f92672">.</span>FOUR,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;%&#34;</span>: Keycode<span style="color:#f92672">.</span>FIVE
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Digits Characters</span>
+</span></span><span style="display:flex;"><span>digit_keycodes <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;0&#34;</span>: Keycode<span style="color:#f92672">.</span>ZERO,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;1&#34;</span>: Keycode<span style="color:#f92672">.</span>ONE,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;2&#34;</span>: Keycode<span style="color:#f92672">.</span>TWO,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;3&#34;</span>: Keycode<span style="color:#f92672">.</span>THREE,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;4&#34;</span>: Keycode<span style="color:#f92672">.</span>FOUR,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;5&#34;</span>: Keycode<span style="color:#f92672">.</span>FIVE,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;6&#34;</span>: Keycode<span style="color:#f92672">.</span>SIX,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;7&#34;</span>: Keycode<span style="color:#f92672">.</span>SEVEN,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;8&#34;</span>: Keycode<span style="color:#f92672">.</span>EIGHT,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;9&#34;</span>: Keycode<span style="color:#f92672">.</span>NINE,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>We defined them manually because: first after many testing I found that this is the most consisting way of dealing with special charcters when using the Raspberry Pi Pico as HID device. second we need them in this way to be able to use the special characters since most of them require pressing two buttons at the same time (<code>Shift + &lt;char&gt;</code>).</p>
+<h4 id="third-defining-the-function-to-type-the-commands">Third: Defining the function to type the commands:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">type_command</span>(command_string):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> char <span style="color:#f92672">in</span> command_string:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> char<span style="color:#f92672">.</span>isalpha():
+</span></span><span style="display:flex;"><span>            keycode <span style="color:#f92672">=</span> getattr(Keycode, char<span style="color:#f92672">.</span>upper())
+</span></span><span style="display:flex;"><span>            keyboard<span style="color:#f92672">.</span>press(keycode)
+</span></span><span style="display:flex;"><span>            keyboard<span style="color:#f92672">.</span>release_all()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> char<span style="color:#f92672">.</span>isdigit():
+</span></span><span style="display:flex;"><span>            keyboard<span style="color:#f92672">.</span>press(digit_keycodes[char])
+</span></span><span style="display:flex;"><span>            keyboard<span style="color:#f92672">.</span>release_all()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> char <span style="color:#f92672">in</span> special_characters:
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># SHIFT-needed characters</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> char <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#34;:&#34;</span>, <span style="color:#e6db74">&#34;(&#34;</span>, <span style="color:#e6db74">&#34;)&#34;</span>, <span style="color:#e6db74">&#34;_&#34;</span>, <span style="color:#e6db74">&#34;+&#34;</span>, <span style="color:#e6db74">&#34;|&#34;</span>, <span style="color:#e6db74">&#34;{&#34;</span>, <span style="color:#e6db74">&#34;}&#34;</span>, <span style="color:#e6db74">&#34;&lt;&#34;</span>, <span style="color:#e6db74">&#34;&gt;&#34;</span>, <span style="color:#e6db74">&#34;?&#34;</span>, <span style="color:#e6db74">&#34;$&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;%&#34;</span>]:
+</span></span><span style="display:flex;"><span>                keyboard<span style="color:#f92672">.</span>press(Keycode<span style="color:#f92672">.</span>SHIFT, special_characters[char])
+</span></span><span style="display:flex;"><span>                keyboard<span style="color:#f92672">.</span>release_all()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                keyboard<span style="color:#f92672">.</span>press(special_characters[char])
+</span></span><span style="display:flex;"><span>                keyboard<span style="color:#f92672">.</span>release_all()
+</span></span><span style="display:flex;"><span>        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">0.01</span>)
+</span></span></code></pre></div><p>We will send the keys on at a time since after running multiple tests this was the most comprehensive way that supports the widest range of implementations.</p>
+<p>Note that you can send a single string at once using the <code>layout.write()</code> function that exists in the <code>adafruit_hid.keyboard_layout_us</code> module you can read more about it <a href="https://docs.circuitpython.org/projects/hid/en/latest/examples.html#keyboard-layout">here</a></p>
+<h4 id="fourth-optional-open-the-run-dialog-in-windows-function">Fourth (Optional): Open the Run Dialog in Windows function:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">open_run_dialog</span>():
+</span></span><span style="display:flex;"><span>    keyboard<span style="color:#f92672">.</span>press(Keycode<span style="color:#f92672">.</span>WINDOWS, Keycode<span style="color:#f92672">.</span>R)
+</span></span><span style="display:flex;"><span>    keyboard<span style="color:#f92672">.</span>release_all()
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Clean the Run dialog</span>
+</span></span><span style="display:flex;"><span>    keyboard<span style="color:#f92672">.</span>press(Keycode<span style="color:#f92672">.</span>BACKSPACE)
+</span></span><span style="display:flex;"><span>    keyboard<span style="color:#f92672">.</span>release_all()
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">0.5</span>)
+</span></span></code></pre></div><p>This step is optional but this is the proper way to open the run dialog before you type command you want to execute. The functions used here will be explained in the next step.</p>
+<h4 id="fifth-the-main-function">Fifth: The Main Function:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Initialize keyboard</span>
+</span></span><span style="display:flex;"><span>    keyboard <span style="color:#f92672">=</span> Keyboard(usb_hid<span style="color:#f92672">.</span>devices)
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Open run dialog</span>
+</span></span><span style="display:flex;"><span>    open_run_dialog()
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Type the command you want in the run dialog</span>
+</span></span><span style="display:flex;"><span>    type_command(<span style="color:#e6db74">&#34;&lt;command&gt;&#34;</span>)
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Press enter</span>
+</span></span><span style="display:flex;"><span>    keyboard<span style="color:#f92672">.</span>press(Keycode<span style="color:#f92672">.</span>ENTER)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Relase the keyboard</span>
+</span></span><span style="display:flex;"><span>    keyboard<span style="color:#f92672">.</span>release_all()
+</span></span></code></pre></div><p>Since everything is self-explanatory so I will hit you with some notes:</p>
+<ol>
+<li>The <code>time.sleep(&lt;value&gt;)</code> depends on what are you exactly doing for example running an run as administrator dialog will require you to sleep for 2 seconds at least depending on the hardware of the device you are connecting to so make sure you set it up proberly</li>
+<li><code>keyboard.release_all()</code>: This is a very important pieace of the code try not to forget it like I did many times.</li>
+</ol>
+<h2 id="running-the-code">Running the Code:</h2>
+<ol>
+<li>Testing: If you are coding on <a href="https://code.visualstudio.com/">vscode</a> and have the Raspberry Pi Pico <a href="https://marketplace.visualstudio.com/items?itemName=raspberry-pi.raspberry-pi-pico">extention</a> installed you will notice that the code is running everytime you save the file.</li>
+<li>Running: after finishing and saving the file just unplug the Raspberry Pi Pico from your device and replug it in any other device and your code will run perfectly (most of the times).</li>
+</ol>
+<h2 id="final-thoughts">Final Thoughts:</h2>
+<p>This is a very general way of developing a microcontroller that can be used as a malicious USB device so there is many other things that you need to keep in mind:</p>
+<ol>
+<li>The timing of sleeping in every function and command you ran might vary from hardware to hardware and from command to command.</li>
+<li>There are many other tools that can do the same job that I can recommend: ESP32, Digispark (ATTiny85).</li>
+<li>Next Step: Try to implement the same logic using C/C++ Raspberry Pi Pico <a href="https://www.raspberrypi.com/documentation/microcontrollers/c_sdk.html">SDK</a></li>
+</ol>
+<p>Thank you for reading.</p>
+<h2 id="references">References:</h2>
+<ol>
+<li><a href="https://www.raspberrypi.com/documentation/">Raspberry Pi Pico Documentation</a></li>
+<li><a href="https://docs.circuitpython.org/en/latest/README.html">CircuitPython Documentation</a></li>
+</ol>
+<hr>
+
+        
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+
+    
+    
+        <svg id="btt-button" class="arrow-logo" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512" onclick="scrollToTop()" title="Go to top">
+    
+    <path d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/>
+</svg>
+<script>
+    let backToTopButton = document.getElementById("btt-button");
+
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    }
+
+    function scrollToTop() {
+        window.scrollTo(0, 0);
+    }
+</script>
+
+    
+    
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    
+    
+
+    
+
+    
+
+        
+            
+        
+
+        
+
+        
+        
+
+        
+
+    
+
+    
+        <span>&copy; 2025 Muhammad Muazen</span>
+    
+
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/gokarna-theme/gokarna-hugo">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>

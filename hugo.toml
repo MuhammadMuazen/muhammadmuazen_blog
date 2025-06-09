@@ -1,0 +1,76 @@
+baseURL = "https://localhost:1313/"
+defaultContentLanguage = "en"
+
+# Automatically generate robots.txt
+enableRobotsTXT = true
+enableEmoji = true
+languageCode = "en"
+theme = "gokarna"
+title = "Muhammad Muazen"
+
+[params]
+  # Description under the name
+  description = "Cybersecurity engineer 🥷 Offensive security 🔓, defensive security 🛡️. Proficient in C ©️/Python 🐍/Rust 🦀 for tooling ⚔️/malware 👾. Experienced in Windows 🪟/Linux 🐧, network analysis 📶 & attack simulation ⚔︎⛊. Team collaborator 🤝, In Love with Low Level Programming and Embedded 📟, Books Worm 📚"
+  # Social Links
+  socialIcons = [
+    {name = "github", url = "https://github.com/MuhammadMuazen"},
+    {name = "linkedin", url = "https://www.linkedin.com/in/muhammad-muazen-42004a296/"},
+    {name = "email", url = "mailto:muhammadmuazen@gmail.com"}
+  ]
+  # footer near the year
+  footer = "Muhammad Muazen"
+  # avatar picture
+  avatarURL = "/images/avatar.jpg"
+  # Display posts on the home page
+  showPostsOnHomePage = "recent"
+  numberPostsOnHomePage = 2
+  # Favicons
+  favicon = "favicons/favicon.ico"
+  favicon16x16 = "favicons/favicon-16x16.png"
+  favicon32x32 = "favicons/favicon-32x32.png"
+  appleTouchIcon = "favicons/apple-touch-icon.png"
+  androidChrome192 = "favicons/android-chrome-192x192.png"
+  androidChrome512 = "favicons/android-chrome-512x512.png"
+  webmanifest = "favicons/site.webmanifest"
+  # Other configs
+  displayReadingTime = true
+  showBackToTopButton = true
+  # Define SEO keywords
+  metaKeywords = ["blog", "gokarna", "hugo", "cybersecurity", "hacking", "ethicalhacker", "penetration tester", "programming",
+                   "c", "rust", "python", "cs", "computer science", "viral", "cyber", "tech", "IT", "computers", "ideas", "hustle",
+                   "work", "job", "posts", "sharing", "information", "ctf", "defensive", "embedded", "arduino", "esp32", "stm32",
+                   "raspberry pi", "hardware", "software", "hiring", "personal", "learning", "free", "opensource"]
+  # Used to add the fonst I need to add the icons
+  customHeadHTML = "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\">"
+
+[menu]
+  # Home page
+  [[menu.main]]
+    name = "Home"
+    pre = "<i class='fas fa-home'></i> "
+    url = "/"
+    weight = 1
+  # IT Posts page
+  [[menu.main]]
+  name = "IT Posts"
+  pre = "<i class='fa fa-code fa-fw'></i> "
+  url = "/it-posts/"
+  weight = 2
+  # Non IT Posts page
+  [[menu.main]]
+  name = "Non-IT Posts"
+  pre = "<i class='fa fa-book fa-fw'></i> "
+  url = "/non-it-posts/"
+  weight = 3
+  # About Me page
+  [[menu.main]]
+  name = "About Me"
+  pre = "<i class='fa fa-user fa-fw'></i> "
+  url = "/about-me/"
+  weight = 4
+  # Contacts page
+  [[menu.main]]
+  name = "Contact me"
+  pre = "<i class='fa fa-envelope fa-fw'></i> "
+  url = "/contact-me/"
+  weight = 5
