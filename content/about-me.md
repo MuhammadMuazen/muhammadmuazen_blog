@@ -105,6 +105,6 @@ I’m the kind of person who gets frustrated when I solve a problem on the first
 ---
 ## Contacts
 
-You contact me and check my profiles by clicking on the (Contact Me) in the navigation bar in the top right corner or by clicking [here](https://google.com)
+You contact me and check my profiles by clicking on the (Contact Me) in the navigation bar in the top right corner or by clicking [here](https://86275365.muhammadmuazen-blog.pages.dev/contact-me/)
 
 ---
