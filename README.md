@@ -5,5 +5,3 @@ This is my personal blog source code. I mainly blog about IT but I might from ti
 ## Developed By:
 
 [Hugo Themes](https://gohugo.io/) using the [Gokarna Theme](https://gokarna-hugo.netlify.app/)
-
----
