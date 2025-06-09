@@ -93,7 +93,7 @@ import time
 1. `adafruit_hid.keycode`: This [module](https://docs.circuitpython.org/projects/hid/en/latest/api.html#adafruit_hid.keycode.Keycode) holds the USB HID Keycode constant.
 2. `adafruit_hid.keyboard`: the [module](https://docs.circuitpython.org/projects/hid/en/latest/api.html#adafruit_hid.keyboard.Keyboard) send HID keyboard reports.
 3. `usb_hid`: [driver](https://docs.circuitpython.org/projects/hid/en/latest/index.html) simulates USB HID devices. 
-4. `time`: this is a built it [module](https://docs.python.org/3/library/time.html) in the python package that provides various time-related functions.
+4. `time`: this is a built in [module](https://docs.python.org/3/library/time.html) in the python package that provides various time-related functions.
 
 #### Second: Defining the special characters and digits we need manually:
 ```python
