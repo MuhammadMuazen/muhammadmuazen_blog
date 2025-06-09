@@ -65,13 +65,13 @@ Ranked in the top 1% globally on TryHackMe, demonstrating advanced offensive ðŸ—
 Here you will find some the technologies and tools I dealt with throughout my journey:
 
 Why just some? there are a lot of tools that can do the same thing but I thought if I mentioned one here
-that usually means I know how to use the other one (let's say tunneling through ssh and chisel)
+that usually means I know how to use the other one on some level (let's say tunneling through ssh and chisel)
 
 
 | Linux Opertaing System | Windwos Operating System | OpenDSB Operating System |
 |------------------------|--------------------------|--------------------------|
 | Python Programming Language | C Programming Language | C# Programming Language |
-| C Programming Language | Rust Programming Language | Nim Programming Language |
+| C++ Programming Language | Rust Programming Language | Nim Programming Language |
 | Bash Scripting | Powershell Scripting | Kotlin Programming Language |
 | Java Programming Language | CISCO Routing and Switching | WebAppSec |
 | Wireshark | Kibana | Suricata | 

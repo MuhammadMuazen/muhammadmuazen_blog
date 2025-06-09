@@ -40,7 +40,7 @@ According to the Offical [Website](https://www.raspberrypi.com/documentation/mic
 
 [CircuitPython](https://docs.circuitpython.org/en/latest/README.html) is an open-source, beginner-friendly programming language and runtime environment designed for microcontrollers and embedded systems. It is a derivative of MicroPython, optimized for simplicity and ease of use, particularly in educational and DIY electronics projects.
 
-There are two reasons for choosing CircuitPython in this project:
+There are three reasons for choosing CircuitPython in this project:
 1. I tried first to develop the HID malicious USB using the natvie C/C++ Raspberry Pi Pico [SDK](https://www.raspberrypi.com/documentation/microcontrollers/c_sdk.html) using the [tinyusb](https://docs.tinyusb.org/en/latest/) library. It was a bit hard at first then I fully understood the logic but in the end I stopped developing it for a very simple reason... The code was big and needed a lot of explaining in the project documentation which was already big enough and since the whole project concept was not even about the raspberry Pi Pico I decided to drop the SDK implementatin and search for something else.
 2. [Adafruit](https://www.adafruit.com/?srsltid=AfmBOop1pHOGx7YwoyR1DSdSvzCkrQQth85lU6iyUQM7NRMYJGJjS6HW) [videos](https://www.youtube.com/adafruit) are so cool and since they are the main supporter for the CircuitPython project up to this date I always wanted to use this firmware in a way or another. 
 3. Finally it gets the job done in a very nice and clean way.
