@@ -66,14 +66,13 @@ Ranked in the top 1% globally on TryHackMe, demonstrating advanced offensive �
 
 ![CSharpCert](/images/csharpCert.png)
 
-Completed Microsoft's Foundational C# certification, strengthening my programming skills for security tool development and exploit analysis. Gained hands-on experience with C# fundamentals applicable to scripting custom security solutions and understanding malware behavior. Enhanced my ability to analyze and manipulate code for offensive security research. you can check it out [here](https://www.freecodecamp.org/certification/MuhammadMuazen/foundational-c-sharp-with-microsoft)
+Completed Microsoft's Foundational C# certification 📜, strengthening 💪 my programming skills for security tool development 🛠️ and exploit analysis🕵. Gained hands-on experience with C# fundamentals applicable to scripting custom security solutions </> and understanding malware behavior 👾. Enhanced my ability to analyze and manipulate code 🧠 for offensive security research 🔬. you can check it out [here](https://www.freecodecamp.org/certification/MuhammadMuazen/foundational-c-sharp-with-microsoft)
 
 ### MalDev Academy Certificate
 
 ![MalDevCert](/images/malDevCert.png)
 
-Earned the MalDev Academy Certificate, mastering offensive techniques in malware development and evasion. Gained hands-on experience crafting custom payloads, bypassing defenses, and analyzing malicious code. Strengthened my ability to think like an attacker for red teaming and advanced threat simulations.
-
+Earned the MalDev Academy Certificate 📜, mastering offensive techniques 🔧 in malware development and evasion ༄. Gained hands-on experience crafting 🪡 custom payloads, bypassing defenses 🚧, and analyzing malicious code 🔬. Strengthened my ability to think like an attacker for red teaming and advanced threat simulations 💪.
 
 ---
 ## Skills
