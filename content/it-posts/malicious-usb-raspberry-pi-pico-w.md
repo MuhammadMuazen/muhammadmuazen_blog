@@ -1,7 +1,7 @@
 +++
 date = '2025-06-08T02:29:16-12:00'
 draft = false
-title = 'Developing a malicious USB using Raspberry Pi Pico and CircuitPython Firmware'
+title = 'Developing a Malicious USB Using Raspberry Pi Pico and CircuitPython Firmware'
 type = 'post'
 tags =  ["blog", "IoT", "RedTeaming", "Cybersecurity", "Raspberry Pi", "CircuitPython", "MCU"]
 +++
