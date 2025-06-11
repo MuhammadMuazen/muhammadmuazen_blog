@@ -7,10 +7,12 @@ I am a cybersecurity engineer 🤖 specializing in offensive security 🥷, with
 - [Who even am I??? Who is Muhammad Muazen??](#who-even-am-i-who-is-muhammad-muazen)
   - [Table Of Contents](#table-of-contents)
   - [Education](#education)
-  - [Certifications](#certifications)
+  - [Self Study \& Certifications](#self-study--certifications)
   - [Expertise](#expertise)
   - [Achievements](#achievements)
-    - [TryHackMe:](#tryhackme)
+    - [TryHackMe](#tryhackme)
+    - [Foundational C# With Microsoft](#foundational-c-with-microsoft)
+    - [MalDev Academy Certificate](#maldev-academy-certificate)
   - [Skills](#skills)
   - [Passion](#passion)
   - [Resumes](#resumes)
@@ -23,7 +25,7 @@ Lattakia University: Informatics Engineering - Computer systems and Networks Eng
 ![lattakia-University-Logo](/images/LattakiaUniversityLogo.png)
 
 --- 
-## Certifications
+## Self Study & Certifications
 
 | Certificate Name | Acronym | Logo |
 |------------------|---------|------|
@@ -53,11 +55,24 @@ Lattakia University: Informatics Engineering - Computer systems and Networks Eng
 - High problem-solving skills 🧠—adept at dissecting complex challenges with logic 🧩, creativity 🪄, and ruthless efficiency 🚀.
 ---
 ## Achievements
-### TryHackMe:
+### TryHackMe
 
 ![TryHackMe-Badge](https://tryhackme-badges.s3.amazonaws.com/muhammadmuazen1.png)
 
 Ranked in the top 1% globally on TryHackMe, demonstrating advanced offensive 🗡️ & defensive 🛡️ security expertise.  Mastered network 🌐  exploitation: Pivoting 🔄, MITM attacks 🕵️, custom payload delivery 💉, and firewall/IDS evasion 🚨. Developed & mitigated 🛠️ real-world attack scenarios—from ransomware simulations 🔐 to DNS spoofing 📡. Proven ability to analyze 📊, exploit 💥, and secure 🔒 complex networks through 250+ hands-on challenges and CTFs 🏆.
+
+### Foundational C# With Microsoft
+
+![CSharpCert](/images/csharpCert.png)
+
+Completed Microsoft's Foundational C# certification, strengthening my programming skills for security tool development and exploit analysis. Gained hands-on experience with C# fundamentals applicable to scripting custom security solutions and understanding malware behavior. Enhanced my ability to analyze and manipulate code for offensive security research. you can check it out [here](https://www.freecodecamp.org/certification/MuhammadMuazen/foundational-c-sharp-with-microsoft)
+
+### MalDev Academy Certificate
+
+![MalDevCert](/images/malDevCert.png)
+
+Earned the MalDev Academy Certificate, mastering offensive techniques in malware development and evasion. Gained hands-on experience crafting custom payloads, bypassing defenses, and analyzing malicious code. Strengthened my ability to think like an attacker for red teaming and advanced threat simulations.
+
 
 ---
 ## Skills
@@ -76,10 +91,9 @@ that usually means I know how to use the other one on some level (let's say tunn
 | Java Programming Language | CISCO Routing and Switching | WebAppSec |
 | Wireshark | Kibana | Suricata | 
 | Snort | PfSesnse | Ghidra |
-| IDA | WinDBG | GDB |
-| DnSpy | PE-Bear | x32/x64 DBG |
+| IDA | WinDBG | DnSpy |
+| DnSpy | PE-Bear | Sliver C2 |
 | Nmap | Rustscan | Metasploit Framework |
-| Sliver C2 | Covenant C2 | Havoc C2 |
 | MITRE ATT&CK Tools | Rubeus | Impacket-scripts
 | Burpsuite | dnscat2 | fuff |
 | Hashcat | John the Ripper | Bloodhound |
