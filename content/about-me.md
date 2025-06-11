@@ -63,6 +63,7 @@ Ranked in the top 1% globally on TryHackMe, demonstrating advanced offensive ðŸ—
 
 ### Foundational C# With Microsoft
 
+
 ![CSharpCert](/images/csharpCert.png)
 
 Completed Microsoft's Foundational C# certification, strengthening my programming skills for security tool development and exploit analysis. Gained hands-on experience with C# fundamentals applicable to scripting custom security solutions and understanding malware behavior. Enhanced my ability to analyze and manipulate code for offensive security research. you can check it out [here](https://www.freecodecamp.org/certification/MuhammadMuazen/foundational-c-sharp-with-microsoft)
