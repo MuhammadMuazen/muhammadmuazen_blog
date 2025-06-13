@@ -3,6 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/tags/blog/</loc>
+    <lastmod>2025-06-13T04:00:31-12:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ideas/</loc>
+    <lastmod>2025-06-13T04:00:31-12:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/mind/</loc>
+    <lastmod>2025-06-13T04:00:31-12:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-06-13T04:00:31-12:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/non-it-posts/my-consumption-of-knowledge-in-modern-era/</loc>
+    <lastmod>2025-06-13T04:00:31-12:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/non-it/</loc>
+    <lastmod>2025-06-13T04:00:31-12:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/non-it-posts/</loc>
+    <lastmod>2025-06-13T04:00:31-12:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-06-13T04:00:31-12:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/circuitpython/</loc>
     <lastmod>2025-06-08T02:29:16-12:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/cybersecurity/</loc>
@@ -17,13 +41,13 @@
     <loc>http://localhost:1313/it-posts/</loc>
     <lastmod>2025-06-08T02:29:16-12:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:1313/tags/mcu/</loc>
+    <lastmod>2025-06-08T02:29:16-12:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/raspberry-pi/</loc>
     <lastmod>2025-06-08T02:29:16-12:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/redteaming/</loc>
-    <lastmod>2025-06-08T02:29:16-12:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-06-08T02:29:16-12:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/about-me/</loc>
