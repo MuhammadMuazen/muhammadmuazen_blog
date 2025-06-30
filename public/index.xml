@@ -36,5 +36,12 @@
       <guid>http://localhost:1313/contact-me/</guid>
       <description>&lt;h1 id=&#34;profiles-and-contacts&#34;&gt;Profiles and Contacts:&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;a href=&#34;https://github.com/muhammadmuazen/&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/githubLogo.png&#34; alt=&#34;Github&#34;&gt;&lt;/a&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;a href=&#34;https://www.linkedin.com/in/muhammad-muazen-42004a296/&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/linkedinLogo.png&#34; alt=&#34;LinkedIn&#34;&gt;&lt;/a&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://github.com/muhammadmuazen/&#34;&gt;https://github.com/muhammadmuazen/&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://www.linkedin.com/in/muhammad-muazen-42004a296/&#34;&gt;https://www.linkedin.com/in/muhammad-muazen-42004a296/&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;a href=&#34;mailto:muhammadmuazen1@gmail.com&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/mailIcon.png&#34; alt=&#34;Mail&#34;&gt;&lt;/a&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;a href=&#34;https://t.me/muhammadmuazen&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/telegramLogo.png&#34; alt=&#34;Telegram&#34;&gt;&lt;/a&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;mailto:muhammadmuazen1@gmail.com&#34;&gt;muhammadmuazen1@gmail.com&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://t.me/muhammadmuazen&#34;&gt;https://t.me/muhammadmuazen&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;</description>
     </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/services/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/services/</guid>
+      <description>&lt;h1 id=&#34;coming-soon&#34;&gt;Coming Soon&lt;/h1&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -54,6 +54,8 @@
   </url><url>
     <loc>http://localhost:1313/contact-me/</loc>
   </url><url>
+    <loc>http://localhost:1313/services/</loc>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url>
 </urlset>
