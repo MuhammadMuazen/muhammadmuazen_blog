@@ -40,6 +40,7 @@ Lattakia University: Informatics Engineering - Computer systems and Networks Eng
 | GIAC Web Application Penetration Tester | GWAPT | ![GWAPT-Logo](/images/gwaptLogo.png) |
 | GIAC Red Team Professional | GRTP | ![GRTP-Logo](/images/grtpLogo.png) |
 | GIAC Security Operations Certified | GSOC | ![GSOC-Logo](/images/gsoc.png) |
+| GIAC Defensible Security Architecture | GDSA | ![GDSA-logo](/images/gdsalogo.png) |
 | MalDev Academy Certifacte | MalDev | ![MalDev-Logo](/images/maldevLogo.png) |
 
 ---
