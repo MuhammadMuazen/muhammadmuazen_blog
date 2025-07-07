@@ -86,17 +86,16 @@ that usually means I know how to use the other one on some level (let's say tunn
 | Linux Opertaing System | Windwos Operating System | OpenDSB Operating System |
 |------------------------|--------------------------|--------------------------|
 | Python Programming Language | C Programming Language | C# Programming Language |
-| C++ Programming Language | Rust Programming Language | Nim Programming Language |
-| Bash Scripting | Powershell Scripting | Kotlin Programming Language |
-| Java Programming Language | CISCO Routing and Switching | WebAppSec |
-| Wireshark | Kibana | Suricata | 
-| Snort | PfSesnse | Ghidra |
+| C++ Programming Language | Rust Programming Language | Java Programming Language |
+| Bash Scripting | Powershell Scripting | Wireshark |
+| John the Ripper | CISCO Routing and Switching | WebAppSec |
+| Hashcat | Kibana | Suricata | 
+| Bloodhound | PfSesnse | Ghidra |
 | IDA | WinDBG | DnSpy |
 | DnSpy | PE-Bear | Sliver C2 |
 | Nmap | Rustscan | Metasploit Framework |
 | MITRE ATT&CK Tools | Rubeus | Impacket-scripts
 | Burpsuite | dnscat2 | fuff |
-| Hashcat | John the Ripper | Bloodhound |
 
 ---
 ## Passion
